@@ -15,7 +15,7 @@ function BVPlayer(param)
     , fileName: null // 재생할 파일명
     , fileExtension: null // 재생할 파일 확장자
     , saveVolume: 0.5 // 마지막으로 변환 볼륨 값
-	  , isMobile: true // 모바일 유무
+	  , isMobile: false // 모바일 유무
     , isEnded: false // 영상 종료 여부
     , isSyncSubtitle: true // 싱크 자막 여부
     , callbackStart: function() {} // 영상 시작 후 반환 할 함수
