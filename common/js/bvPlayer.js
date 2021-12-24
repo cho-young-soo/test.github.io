@@ -246,11 +246,13 @@ BVPlayer.prototype.createControls = function()
   $controls.find(".time").append($('<span/>', { class: "time--current", text: "00:00", title: "현재시간" }));
   $controls.find(".time").append($('<span/>', { class: "time--diviser", text: "/" }));
   $controls.find(".time").append($('<span/>', { class: "time--duration", text: "00:00", title: "전체시간" }));
- 
   
   $controls.append($('<div/>', { class: "button", id: "mute", title: "음소거" }));
   $controls.append($('<div/>', { class: "button", id: "unmute", title: "음복구" }));
-
+  if($(window).width()<1024){
+    $(".bv-player .bv-controls #mute").css("right","130px");
+    $(".bv-player .bv-controls #unmute").css("right","130px");
+  }
 
   if($(window).width()>1024){
     $controls.append($('<div/>', { class: "sound-bar", title: "소리조절바" }));
