@@ -521,6 +521,11 @@ BVPlayer.prototype.stateFullscreen = function()
     this.$controls.find("#exitfullscreen").hide();
     if (this.info.type === "video") this.autoHideControls(false);
   }
+	  if($(window).width()<1024){
+	  $(".bv-player .bv-controls #fullscreen").hide();
+	  $("#exitfullscreen").css("display","none !important");
+  }	
+
 }
 
 /**
