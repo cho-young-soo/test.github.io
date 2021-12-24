@@ -15,7 +15,7 @@ function BVPlayer(param)
     , fileName: null // 재생할 파일명
     , fileExtension: null // 재생할 파일 확장자
     , saveVolume: 0.5 // 마지막으로 변환 볼륨 값
-	  , isMobile: false // 모바일 유무
+	  , isMobile: true // 모바일 유무
     , isEnded: false // 영상 종료 여부
     , isSyncSubtitle: true // 싱크 자막 여부
     , callbackStart: function() {} // 영상 시작 후 반환 할 함수
@@ -249,13 +249,20 @@ BVPlayer.prototype.createControls = function()
  
   $controls.append($('<div/>', { class: "button", id: "mute", title: "음소거" }));
   $controls.append($('<div/>', { class: "button", id: "unmute", title: "음복구" }));
-
+  if($(window).width()<1024){
+	  $(".bv-player .bv-controls #mute").css("right","130px");
+    $(".bv-player .bv-controls #unmute").css("right","130px");
+  }	
   $controls.append($('<div/>', { class: "sound-bar", title: "소리조절바" }));
   $controls.find(".sound-bar").append($('<div/>', { class: "sound-range" }));
   $controls.find(".sound-bar>.sound-range").append($('<div/>', { class: "sound-handle" }));
+  if($(window).width()<1024){
+	  $(".bv-player .bv-controls .sound-bar").hide();
+  }	
   
   $controls.append($('<div/>', { class: "button", id: "fullscreen", title: "전체화면" }));
   $controls.append($('<div/>', { class: "button", id: "exitfullscreen", title: "전체화면 해제" }));
+
   $controls.find("#exitfullscreen").hide();
     
   $controls.append($('<div/>', { class: "button", id: "prev", title: "이전페이지" }));
