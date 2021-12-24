@@ -513,7 +513,7 @@ BVPlayer.prototype.stateFullscreen = function()
     this.$controls.find("#fullscreen").hide();
     this.$controls.find("#exitfullscreen").show();
     if (this.info.type === "video") this.autoHideControls(true);
-    else this.autoHideControls(false);
+    else this.autoHideControls(true);
   }
   else
   {
