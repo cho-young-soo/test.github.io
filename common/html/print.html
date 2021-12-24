@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- 타이틀 -->
+  <title>PRINT</title>
+  <!-- html4 언어설정 -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <!-- html5 언어설정 -->
+  <meta charset="UTF-8">
+  <!-- 모바일 웹을 위한 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 웹 문서에 대한 제작자 설정 -->
+  <meta name="author" content="">
+  <!-- 웹 문서에 대한 설명 설정 -->
+  <meta name="description" content="">
+  <!-- 웹 문서에 대한 키워드 설정 -->
+  <meta name="keywords" content="">
+  <!-- 호환성 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">  
+</head>
+<body>
+  <div class="area-print" style="width:100%; height:100%;"></div>
+  
+  <!-- 스크립트 호출 -->
+  <script src="../plugin/jquery/jquery.js"></script>
+  <script>
+    var url = opener.location.href.split("/");
+    var chapter = url[url.length - 2].split(".")[0];
+    var count = 1;
+    
+    drawingPage();
+    
+    function drawingPage()
+    {
+      $(".area-print").append('<img class="img-print' + count + '" style="width:100%; height:100%;" src="../../' + chapter + '/asset/summary/print-' + count + '.png" />');
+      
+      $(".img-print" + count).on("load", function() {
+        count++;
+        drawingPage();
+      });
+      
+      $(".img-print" + count).on("error", function() {
+        $(this).remove();
+        startPrint();
+      });
+    }
+    
+    function startPrint()
+    {
+      window.focus();
+      window.print();
+      setTimeout(function(){
+        window.close();
+      }, 1500);
+    }    
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+@font-face {
+  font-family: NanumGothic;
+  src: local('NanumGothic')
+    , url('../fonts/NanumGothic.eot');  
+  src:url('../fonts/NanumGothic.eot?#iefix') format('embedded-opentype')
+    , url('../fonts/NanumGothic.woff') format('woff');
+}
+
+@font-face {
+  font-family: Noto Sans KR;
+  src: local("Noto Sans KR")
+    , url(../fonts/NotoSansKR-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: DoHyeon;
+  src: local("DoHyeon")
+    , url(../fonts/DoHyeon-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: local("Nanum Pen Script")
+    , url(../fonts/Montserrat-Regular.ttf) format('truetype');
+}
