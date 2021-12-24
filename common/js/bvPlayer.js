@@ -249,16 +249,13 @@ BVPlayer.prototype.createControls = function()
   
   $controls.append($('<div/>', { class: "button", id: "mute", title: "음소거" }));
   $controls.append($('<div/>', { class: "button", id: "unmute", title: "음복구" }));
-  if($(window).width()<1024){
-    $(".bv-player .bv-controls #mute").css("right","130px");
-    $(".bv-player .bv-controls #unmute").css("right","130px");
-  }
 
-  if($(window).width()>1024){
+
+
     $controls.append($('<div/>', { class: "sound-bar", title: "소리조절바" }));
     $controls.find(".sound-bar").append($('<div/>', { class: "sound-range" }));
     $controls.find(".sound-bar>.sound-range").append($('<div/>', { class: "sound-handle" }));
-  }
+
   
   $controls.append($('<div/>', { class: "button", id: "fullscreen", title: "전체화면" }));
   $controls.append($('<div/>', { class: "button", id: "exitfullscreen", title: "전체화면 해제" }));
@@ -528,11 +525,6 @@ BVPlayer.prototype.stateFullscreen = function()
     this.$controls.find("#exitfullscreen").hide();
     if (this.info.type === "video") this.autoHideControls(false);
   }
-
-  if($(window).width()<1024){
-	  $(".bv-player .bv-controls #fullscreen").hide();
-	  $("#exitfullscreen").css("display","none !important");
-  }	
 }
 
 /**
