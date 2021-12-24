@@ -247,18 +247,16 @@ BVPlayer.prototype.createControls = function()
   $controls.find(".time").append($('<span/>', { class: "time--diviser", text: "/" }));
   $controls.find(".time").append($('<span/>', { class: "time--duration", text: "00:00", title: "전체시간" }));
  
+  
   $controls.append($('<div/>', { class: "button", id: "mute", title: "음소거" }));
   $controls.append($('<div/>', { class: "button", id: "unmute", title: "음복구" }));
-  if($(window).width()<1024){
-	  $(".bv-player .bv-controls #mute").css("right","130px");
-    $(".bv-player .bv-controls #unmute").css("right","130px");
-  }	
-  $controls.append($('<div/>', { class: "sound-bar", title: "소리조절바" }));
-  $controls.find(".sound-bar").append($('<div/>', { class: "sound-range" }));
-  $controls.find(".sound-bar>.sound-range").append($('<div/>', { class: "sound-handle" }));
-  if($(window).width()<1024){
-	  $(".bv-player .bv-controls .sound-bar").hide();
-  }	
+
+
+  if($(window).width()>1024){
+    $controls.append($('<div/>', { class: "sound-bar", title: "소리조절바" }));
+    $controls.find(".sound-bar").append($('<div/>', { class: "sound-range" }));
+    $controls.find(".sound-bar>.sound-range").append($('<div/>', { class: "sound-handle" }));
+  }
   
   $controls.append($('<div/>', { class: "button", id: "fullscreen", title: "전체화면" }));
   $controls.append($('<div/>', { class: "button", id: "exitfullscreen", title: "전체화면 해제" }));
@@ -686,6 +684,10 @@ BVPlayer.prototype.initSoundBar = function()
   $(document).on("mousemove", function(e) {
     if (dragging) self.updateSoundBar(e.pageX); 
   });
+
+  if($(window).width()<1024){
+	  $(".bv-player .bv-controls .sound-bar").hide();
+  }	
 }
 
 /**
