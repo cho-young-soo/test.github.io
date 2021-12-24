@@ -256,10 +256,6 @@ BVPlayer.prototype.createControls = function()
   
   $controls.append($('<div/>', { class: "button", id: "fullscreen", title: "전체화면" }));
   $controls.append($('<div/>', { class: "button", id: "exitfullscreen", title: "전체화면 해제" }));
-  if($(window).width()<1024)){
-	  $("#fullscreen").css({"display":"none"});
-	  $("#exitfullscreen").css({"display":"none"});
-  }	
   $controls.find("#exitfullscreen").hide();
     
   $controls.append($('<div/>', { class: "button", id: "prev", title: "이전페이지" }));
